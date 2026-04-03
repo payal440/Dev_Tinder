@@ -13,7 +13,7 @@ requestRouter.post(
       const toUserId = req.params.ToUserId;
       const status = req.params.status.toLowerCase().trim();
 
-      const allowedStatus = ["pending", "interested"];
+      const allowedStatus = ["pending","interested"];
       if (!allowedStatus.includes(status)) {
         return res
           .status(400)
@@ -70,7 +70,7 @@ requestRouter.post(
       const loggedInUserId = req.user;
       const {status, requestId} = req.params;
 
-      const allowedStatus = ["accepted", "rejected"];
+      const allowedStatus = ["accepted","rejected"];
       if(!allowedStatus.includes(status)){
         return res.status(400).json({message : "invalid status not allowed"})
       }
